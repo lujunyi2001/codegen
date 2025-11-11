@@ -1,0 +1,23 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: sonic-gen
+  profiles:
+    active: dev
+  http: 
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+  web:
+    argument-trim: true
+    argument-blank-to-null: true
+
+
