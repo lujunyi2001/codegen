@@ -250,6 +250,7 @@ export default {
     }
   },
   created() {
+    this.loadDbtype()
     this.loadDataSource()
     this.loadTemplate()
     this.loadGroups()
@@ -289,6 +290,11 @@ export default {
     loadDataSource() {
       this.post('/datasource/list', {}, resp => {
         this.datasourceConfigList = resp.data
+      })
+    },
+    loadDbtype() {
+      this.post('/datasource/dbtype', {}, resp => {
+        this.dbTypeConfig = resp.data
       })
     },
     loadTemplate() {
@@ -424,20 +430,6 @@ export default {
     onDatasourceSave() {
       this.$refs.datasourceForm.validate((valid) => {
         if (valid) {
-          // this.post('/datasource/test', this.datasourceFormData, resp => {
-          //   if (this.datasourceFormData.id) {
-          //     this.post('/datasource/update', this.datasourceFormData, resp => {
-          //       location.reload()
-          //     })
-          //   } else {
-          //     this.post('/datasource/add', this.datasourceFormData, resp => {
-          //       this.tip('添加成功')
-          //       this.loadDataSource()
-          //       this.datasourceDlgShow = false
-          //     })
-          //   }
-          // })
-
           if (this.datasourceFormData.id) {
             this.post('/datasource/update', this.datasourceFormData, resp => {
               location.reload()

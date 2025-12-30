@@ -33,7 +33,6 @@
             <el-input v-model="formData.fileName" placeholder="可使用velocity变量" show-word-limit maxlength="100" />
           </el-form-item>
           <el-form-item prop="content" label="模板内容">
-            <el-link type="primary" :underline="false" href="https://www.cnblogs.com/codingsilence/archive/2011/03/29/2146580.html" target="_blank">Velocity语法</el-link>
             <codemirror
               ref="editor"
               v-model="formData.content"

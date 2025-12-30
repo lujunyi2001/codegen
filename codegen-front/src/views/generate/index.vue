@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-tabs v-model="activeName" type="card">
       <el-tab-pane name="first">
-        <span slot="label"><i class="el-icon-edit-outline"></i> 生成代码</span>
+        <span slot="label"><i class="el-icon-edit-outline"></i> 结构解析</span>
         <generate-config />
       </el-tab-pane>
     </el-tabs>

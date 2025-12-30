@@ -6,6 +6,7 @@ spring:
     name: sonic-gen
   profiles:
     active: dev
+    include: init
   http: 
     encoding:
       charset: UTF-8

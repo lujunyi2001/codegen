@@ -1,0 +1,19 @@
+
+init:
+  initTemplateMap:
+    mybatis:
+      - name: model
+        fileName: ${context.javaBeanName}.java
+        contentFile: init/content-model.tpl
+      - name: mapper
+        fileName: ${context.javaBeanName}Mapper.java
+        contentFile: init/content-mapper.tpl
+      - name: mapping-xml
+        fileName: ${context.javaBeanName}Mapper.xml
+        contentFile: init/content-mapping.tpl
+      - name: service
+        fileName: ${context.javaBeanName}Service.java
+        contentFile: init/content-service.tpl
+      - name: controller
+        fileName: ${context.javaBeanName}Controller.java
+        contentFile: init/content-controller.tpl

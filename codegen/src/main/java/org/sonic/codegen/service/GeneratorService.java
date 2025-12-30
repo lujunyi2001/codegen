@@ -1,5 +1,6 @@
 package org.sonic.codegen.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.sonic.codegen.dto.GeneratorParam;
 import org.sonic.codegen.entity.ColumnDefinition;
@@ -10,7 +11,6 @@ import org.sonic.codegen.util.VelocityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,13 +133,13 @@ public class GeneratorService {
     }
 
     private void setStringValue(Consumer<String> consumer, String packageName) {
-        if (StringUtils.hasText(packageName)) {
+        if (StringUtils.isNotBlank(packageName)) {
             consumer.accept(packageName);
         }
     }
 
     private void setDelPrefix(SQLContext sqlContext, String delPrefix) {
-        if (StringUtils.hasText(delPrefix)) {
+        if (StringUtils.isNotBlank(delPrefix)) {
             sqlContext.setDelPrefix(delPrefix);
         }
     }
@@ -150,10 +150,12 @@ public class GeneratorService {
         }
         VelocityContext context = new VelocityContext();
 
+        sqlContext.getTableDefinition().setGeneratingCode(true);
         context.put("context", sqlContext);
         context.put("table", sqlContext.getTableDefinition());
         context.put("pk", sqlContext.getTableDefinition().getPkColumn());
         context.put("columns", sqlContext.getTableDefinition().getColumnDefinitions());
+        context.put("stringUtils", StringUtils.class);
 
         return VelocityUtil.generate(context, template);
     }

@@ -151,10 +151,6 @@
           "text": "字段注释"
         },
         {
-          "expression": "${column.comment}",
-          "text": "字段注释"
-        },
-        {
           "expression": "${column.canInsert}",
           "text": "是否可以插入"
         },
