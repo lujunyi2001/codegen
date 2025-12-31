@@ -167,6 +167,9 @@
 
 		<resources>
 			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
 				<directory>../codegen-front/dist</directory>
 				<targetPath>META-INF/resources</targetPath>
 				<includes>
